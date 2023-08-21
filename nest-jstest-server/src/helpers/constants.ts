@@ -1,6 +1,8 @@
 export const dataSourceConstants = {
     dataSource: 'DATA_SOURCE',
-    userRepository: 'USER_REPOSITORY'
+    userRepository: 'USER_REPOSITORY',
+    productRepository: 'PRODUCT_REPOSITORY',
+    categoryRepository: 'CATEGORY_REPOSITORY'
 };
 
 export const dbEnvVariables = {

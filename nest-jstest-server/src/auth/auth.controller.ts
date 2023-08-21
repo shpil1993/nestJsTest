@@ -9,8 +9,8 @@ export class AuthController {
 
     @Public()
     @HttpCode(HttpStatus.OK)
-    @Post('login')
-    public signIn(@Body() singInDto: Record<string, any>) {
+    @Post('signin')
+    public signIn(@Body() singInDto: UserDto) {
         return this.authService.signIn(singInDto.email, singInDto.password);
     }
 
