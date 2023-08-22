@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em;
+}
+
+.list-item {
+    display: flex;
+    padding: 0.5em;
+    width: 25em;
+}
+
+.list-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 100%;
+ }
+
+ .list-content p {
+   flex: 1 0 auto;
+ }
+

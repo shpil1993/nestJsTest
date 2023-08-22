@@ -1,0 +1,25 @@
+<div>
+    <div *ngIf="products" class="list">
+        <div *ngFor="let product of products" class="list-item">
+            <mat-card class="list-content">
+                <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"/>
+                <mat-card-header>
+                    <mat-card-title>{{product.title}}</mat-card-title>
+                    <mat-card-subtitle>{{product.price | currency:'USD':'symbol':'1.2-2'}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{product.description}}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <mat-paginator 
+    (page)="handlePageEvent($event)" 
+    [length]="length" 
+    [pageSize]="pageSize" 
+    [showFirstLastButtons]="showFirstLastButtons" 
+    [pageSizeOptions]="pageSizeOptions" 
+    [pageIndex]="pageIndex" 
+    aria-label="Select page">
+    </mat-paginator>
+</div>
