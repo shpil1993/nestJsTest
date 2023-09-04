@@ -2,5 +2,7 @@ export class QueryDto {
     search: string;
     skip: number;
     take: number;
-    categoryId: number;
+    categoryIds: number[];
+    less: number;
+    more: number;
 }

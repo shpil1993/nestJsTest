@@ -1,3 +1,41 @@
+.header {
+    display: grid;
+    grid-template-columns: 5em 1fr auto;
+    column-gap: 2em;
+}
+
+.logo_container {
+    display: inline;
+}
+
+.logo {
+    align-self: center;
+}
+
+.logout {
+    font-size: 2em; 
+    align-self: center;
+}
+
+.search-box {
+    width: 99%; 
+    margin: 1em 1em 0 1em;
+}
+
+.main-content {
+    display: flex;
+}
+
+.products-section {
+    margin-left: 1em; 
+    width: 100%;
+}
+
+.price-section {
+    display: flex;
+    flex-flow: column;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;
@@ -21,3 +59,14 @@
    flex: 1 0 auto;
  }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

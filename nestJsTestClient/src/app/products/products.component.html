@@ -1,25 +1,56 @@
-<div>
-    <div *ngIf="products" class="list">
-        <div *ngFor="let product of products" class="list-item">
-            <mat-card class="list-content">
-                <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"/>
-                <mat-card-header>
-                    <mat-card-title>{{product.title}}</mat-card-title>
-                    <mat-card-subtitle>{{product.price | currency:'USD':'symbol':'1.2-2'}}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{product.description}}</p>
-                </mat-card-content>
-            </mat-card>
+<div class="header">
+    <div class="logo-container">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"/>
+    </div>
+    <mat-form-field class="search-box">
+        <mat-label>Search</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [ngModel]="search" (ngModelChange)="onSearchChange($event)"/>
+    </mat-form-field>
+    <mat-icon class="logout">exit_to_app</mat-icon>
+</div>
+<div class="main-content">
+    <div>
+        <app-categories (selectionChanged)="onCategorySelected($event)"></app-categories>
+        <div class="cat-section">
+            <h2>Prices</h2>
+            <div class="price-section">
+                <mat-form-field>
+                    <mat-label>From</mat-label>
+                    <mat-icon matPrefix>currency_exchange</mat-icon>
+                    <input matInput [ngModel]="more" (ngModelChange)="onMoreChange($event)" type="number"/>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>To</mat-label>
+                    <mat-icon matPrefix>currency_exchange</mat-icon>
+                    <input matInput [ngModel]="less" (ngModelChange)="onLessChange($event)" type="number"/>
+                </mat-form-field>
+            </div>
         </div>
     </div>
-    <mat-paginator 
-    (page)="handlePageEvent($event)" 
-    [length]="length" 
-    [pageSize]="pageSize" 
-    [showFirstLastButtons]="showFirstLastButtons" 
-    [pageSizeOptions]="pageSizeOptions" 
-    [pageIndex]="pageIndex" 
-    aria-label="Select page">
-    </mat-paginator>
+    <div class="products-section">
+        <div *ngIf="products" class="list">
+            <div *ngFor="let product of products" class="list-item">
+                <mat-card class="list-content">
+                    <img mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"/>
+                    <mat-card-header>
+                        <mat-card-title>{{product.title}}</mat-card-title>
+                        <mat-card-subtitle>{{product.price | currency:'USD':'symbol':'1.2-2'}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{product.description}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <mat-paginator 
+        (page)="handlePageEvent($event)" 
+        [length]="length" 
+        [pageSize]="pageSize" 
+        [showFirstLastButtons]="showFirstLastButtons" 
+        [pageSizeOptions]="pageSizeOptions" 
+        [pageIndex]="pageIndex" 
+        aria-label="Select page">
+        </mat-paginator>
+    </div>
 </div>

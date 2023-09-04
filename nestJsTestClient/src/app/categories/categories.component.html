@@ -1,0 +1,17 @@
+<div class="cat-section">
+    <h2>Categories</h2>
+    <section>
+        <span class="cat-list-section">
+          <ul>
+            <li *ngFor="let category of categories">
+              <mat-checkbox [(ngModel)]="category.selected" 
+                            color="primary"
+                            (ngModelChange)="categorySelectionChanged()">
+                {{category.name}}
+              </mat-checkbox>
+            </li>
+          </ul>
+        </span>
+    </section>
+</div>
+<hr />
